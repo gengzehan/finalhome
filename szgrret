@@ -14,8 +14,8 @@ double choice(char way,double a,double b)
 }
 int main()
 {
-    double num[8],re,fi=0;
-    char ch[8];
+    double num[1000],re,fi=0;
+    char ch[1000];
     int i=0,hp=0,flag=0,hp2;
     scanf("%lf",&num[i]);
     while((ch[i]=getchar())!='\n'&&(flag=i+1))
@@ -40,11 +40,11 @@ int main()
     hp=0;
     while(ch[hp]!='\n')
     {
-        fi=choice(ch[hp],num[hp],num[hp+1]);
-        num[hp+1]=fi;
+        re=choice(ch[hp],num[hp],num[hp+1]);
+        num[hp+1]=re;
         hp++;
     }
     if(flag==0)
-        fi=num[0];
-    printf("%.3f",fi);
+        re=num[0];
+    printf("%.3f",re);
 }
