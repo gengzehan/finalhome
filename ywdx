@@ -7,29 +7,46 @@ void toup(char p)
 
 void find(char *p)
 {
-    if(*p>90)
-        toup(*p);
-    else
+    char *q=p;
+    if(*p==' ')
+    {
         printf("%c",*p);
-    p++;
+        p++;
+    }
+    else
+    {
+        toup(*p);
+        p++;
+    }
     while(*p!='\0')
     {
-        if(*p=='.'||*p==','||*p==' ')
+        if(*q==' '||*q==','||*q=='.')
         {
-            printf("%c",*p++);
-            toup(*p);
-            p++;
+            if(*p!=' '||*p!=','||*p!='.')
+            {
+                toup(*p);
+                p++;
+                q++;
+            }
+            else
+            {
+                printf("%c",*p);
+                p++;
+                q++;
+            }
         }
         else
-            printf("%c",*p++);
-
+        {
+            printf("%c",*p);
+            p++;
+            q++;
+        }
     }
 }
 
 int main()
 {
     char str[200];
-    printf("%d",'Z');
     gets(str);
     find(str);
 }
